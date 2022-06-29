@@ -1,0 +1,15 @@
+{
+  "node_modules/nuxt/dist/app/entry.mjs": {
+    "file": "entry-6d6286d7.mjs",
+    "src": "node_modules/nuxt/dist/app/entry.mjs",
+    "isEntry": true,
+    "css": [
+      "entry.988c8780.css"
+    ],
+    "assets": [
+      "les-miserables.1233af39.edges",
+      "game-of-thrones.4a4126a5.edges",
+      "api.worker.039d98da.js"
+    ]
+  }
+}
