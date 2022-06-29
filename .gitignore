@@ -1,0 +1,9 @@
+.idea/
+.nuxt/
+node_modules/
+.output/
+.vscode/
+dist/
+dist
+*.iml
+package-lock.json

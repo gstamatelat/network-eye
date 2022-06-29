@@ -1,0 +1,22 @@
+{
+  "name": "neteye",
+  "private": true,
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "start": "nuxi preview",
+    "generate": "nuxi generate"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.4",
+    "@nuxtjs/tailwindcss": "5.1.x",
+    "@tailwindcss/typography": "0.5.x",
+    "vue-chartjs": "4.1.x",
+    "chart.js": "3.8.x",
+    "papaparse": "5.3.x",
+    "@types/papaparse": "5.3.x",
+    "graphology": "0.24.x",
+    "@popperjs/core": "2.11.x",
+    "comlink": "4.3.x"
+  }
+}
