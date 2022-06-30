@@ -89,10 +89,26 @@ watchEffect(async () => {
  * Chart data and options.
  */
 
+const chartTitle = computed(() => {
+  if (!currentGraph.value) {
+    return null
+  } else if (currentGraph.value.directed) {
+    if (degreeMode.value == 'in') {
+      return "In-Degree Distribution"
+    } else if (degreeMode.value == 'out') {
+      return "Out-Degree Distribution"
+    } else {
+      return null
+    }
+  } else {
+    return "Degree Distribution"
+  }
+})
+
 const chartData = computed(() => {
   return {
     datasets: [{
-      label: 'Degree Distribution',
+      label: chartTitle.value,
       data: degreeDistribution.value,
       borderColor: '#1d4fd8',
       backgroundColor: '#1d4fd8'
