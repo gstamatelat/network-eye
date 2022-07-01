@@ -271,6 +271,9 @@ class APIImpl implements API {
    * @returns the degree distribution of the given graph
    */
   public async degreeDistribution(index: number, type: 'in' | 'out' | 'undirected'): Promise<Map<number, number>> {
+    if (index >= this.graphs.length) {
+      throw new Error(`Index ${index} is outside the bounds of array with length ${this.graphs.length}`)
+    }
     const g: Graph = this.graphs[index]
     if (type == 'undirected' && g.type !== 'undirected') {
       throw new Error(`Can't be here, graph must be undirected, got ${type}, graph is ${g.type}`)
