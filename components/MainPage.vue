@@ -13,7 +13,7 @@
       <template v-for="g, index in graphs">
         <h4>{{ g.name }} ({{ g.directed ? 'directed' : 'undirected' }}) <A @click="api.removeGraph(index)">Remove</A>
         </h4>
-        <p class="ml-5  ">
+        <p class="ml-5">
           V = {{ g.order }},
           E = {{ g.size }}
         </p>
