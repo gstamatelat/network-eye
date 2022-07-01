@@ -11,7 +11,8 @@
     </div>
     <div v-else>
       <template v-for="g, index in graphs">
-        <h4>{{ g.name }} ({{ g.directed ? 'directed' : 'undirected' }})</h4>
+        <h4>{{ g.name }} ({{ g.directed ? 'directed' : 'undirected' }}) <A @click="api.removeGraph(index)">Remove</A>
+        </h4>
         <p class="ml-5  ">
           V = {{ g.order }},
           E = {{ g.size }}
@@ -25,10 +26,12 @@
 <script lang="ts" setup>
 import { Ref } from 'vue'
 import ClientGraph from '~/custom/ClientGraph'
+import API from '~/api/API'
 
 /**
- * The imported graphs.
+ * API and state.
  */
 
+const api: Ref<API> = useState('api')
 const graphs: Ref<ClientGraph[]> = useState('graphs', () => [] as ClientGraph[])
 </script>

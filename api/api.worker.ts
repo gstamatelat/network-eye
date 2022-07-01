@@ -254,6 +254,16 @@ class APIImpl implements API {
   }
 
   /**
+   * Removes a graph from the imported graphs.
+   * 
+   * @param index the index to remove
+   */
+  public async removeGraph(index: number): Promise<void> {
+    this.graphs.splice(index, 1)
+    this.graphChangedCallback()
+  }
+
+  /**
    * Returns the degree distribution of the given graph.
    * 
    * @param index the index of the graph

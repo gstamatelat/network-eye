@@ -18,5 +18,6 @@ export default interface API {
   setGraphChangedCallback: (callback: () => void) => Promise<void>
   numGraphs: () => Promise<number>
   clientGraph: (index: number) => Promise<ClientGraph>
+  removeGraph: (index: number) => Promise<void>
   degreeDistribution: (index: number, type: 'in' | 'out' | 'undirected') => Promise<Map<number, number>>
 }
