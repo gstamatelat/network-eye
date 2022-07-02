@@ -1,10 +1,10 @@
 {
   "node_modules/nuxt/dist/app/entry.mjs": {
-    "file": "entry-ccef3061.mjs",
+    "file": "entry-3aca73f3.mjs",
     "src": "node_modules/nuxt/dist/app/entry.mjs",
     "isEntry": true,
     "css": [
-      "entry.988c8780.css"
+      "entry.1b7e33db.css"
     ],
     "assets": [
       "les-miserables.1233af39.edges",
