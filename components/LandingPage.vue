@@ -14,41 +14,23 @@
         reading it works. With this tool you can import networks and analyze them in order to make useful observations,
         conclusions or decisions for further study.</p>
       <div class="grid lg:grid-flow-col items-center gap-4 lg:gap-8 mt-8">
+        <!-- Open file from computer -->
         <div class="py-2">
           <Button @click="openFile.trigger()">Open file from your computer</Button>
           <p class="mb-0">You may also drop any <b>file</b> from the local file system or a remote <b>URL</b> anywhere
             on this page.</p>
         </div>
+        <!-- Separator -->
         <div class="border-t-2 lg:border-l-2 w-full lg:h-full"></div>
+        <!-- Open preset -->
         <div class="py-2">
           <p class="mt-0">Or try one of the predefined networks below</p>
-          <div class="flex items-center justify-center gap-1">
-            <A @click="addLesMiserables">Les Misérables</A>
+          <div v-for="preset, index in presetGraphs" class="flex items-center justify-center gap-1">
+            <A @click="addPresetGraph(index)">{{ preset.name }}</A>
             <HelpIcon>
-              <template #title>Les Misérables</template>
+              <template #title>{{ preset.name }}</template>
               <template #body>
-                Coappearance network of characters in the novel <i>Les Misérables</i>, compiled by Donald Knuth.
-              </template>
-            </HelpIcon>
-          </div>
-          <div class="flex items-center justify-center gap-1">
-            <A @click="addKarateClub">Zachary's karate club</A>
-            <HelpIcon>
-              <template #title>Zachary's karate club</template>
-              <template #body>
-                Social network of a university karate club, described in the paper <i>An Information Flow Model for
-                  Conflict and Fission in Small Groups</i> by Wayne W. Zachary. Node 1 is the instructor and node 34 is
-                the club administrator.
-              </template>
-            </HelpIcon>
-          </div>
-          <div class="flex items-center justify-center gap-1">
-            <A @click="addGameOfThrones">Game of Thrones</A>
-            <HelpIcon>
-              <template #title>Game of Thrones</template>
-              <template #body>
-                Character interaction network for George R. R. Martin's <i>A Song of Ice and Fire</i> saga, compiled by
-                Andrew Beveridge.
+                <div v-html="preset.description"></div>
               </template>
             </HelpIcon>
           </div>
@@ -70,24 +52,15 @@ import config from '~/app.config'
 const openFile = useOpenFile()
 const api: Ref<API> = useState('api')
 const queue: Ref<string[]> = useState('queue', () => [] as string[])
+const presetGraphs = usePresetGraphs()
 
 /**
  * Add preset social networks.
  */
 
-async function addLesMiserables() {
-  const url = new URL('../assets/les-miserables.edges', import.meta.url)
-  await api.value.queueAddURL(url.toString(), "Les Misérables")
-  queue.value.push("Les Misérables")
-}
-async function addKarateClub() {
-  const url = new URL('../assets/karate-club.edges', import.meta.url)
-  await api.value.queueAddURL(url.toString(), "Zachary's karate club")
-  queue.value.push("Zachary's karate club")
-}
-async function addGameOfThrones() {
-  const url = new URL('../assets/game-of-thrones.edges', import.meta.url)
-  await api.value.queueAddURL(url.toString(), "Game of Thrones")
-  queue.value.push("Game of Thrones")
+async function addPresetGraph(index: number) {
+  const url = new URL(presetGraphs[index].url, import.meta.url)
+  await api.value.queueAddURL(url.toString(), presetGraphs[index].name)
+  queue.value.push(presetGraphs[index].name)
 }
 </script>
