@@ -59,7 +59,7 @@ const presetGraphs = usePresetGraphs()
  */
 
 async function addPresetGraph(index: number) {
-  const url = new URL(presetGraphs[index].url, import.meta.url)
+  const url = new URL(presetGraphs[index].url(), import.meta.url)
   await api.value.queueAddURL(url.toString(), presetGraphs[index].name)
   queue.value.push(presetGraphs[index].name)
 }
