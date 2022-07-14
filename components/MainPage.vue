@@ -6,6 +6,9 @@
       </svg>
     </Button>
     <Button @click="openFile.trigger()">Open File</Button>
+    <Button @click="addPresetGraph(index)" v-for="preset, index in presetGraphs">
+      {{ preset.name }}
+    </Button>
   </div>
   <div class="prose prose-slate dark:prose-invert max-w-xl mx-auto px-4 py-4">
     <h2>List of imported files</h2>
@@ -38,4 +41,16 @@ import API from '~/api/API'
 const api: Ref<API> = useState('api')
 const graphs: Ref<ClientGraph[]> = useState('graphs', () => [] as ClientGraph[])
 const openFile = useOpenFile()
+const queue: Ref<string[]> = useState('queue', () => [] as string[])
+const presetGraphs = usePresetGraphs()
+
+/**
+ * Add preset social networks.
+ */
+
+async function addPresetGraph(index: number) {
+  const url = presetGraphs[index].url()
+  await api.value.queueAddURL(url.toString(), presetGraphs[index].name)
+  queue.value.push(presetGraphs[index].name)
+}
 </script>
