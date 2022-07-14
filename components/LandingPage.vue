@@ -51,7 +51,6 @@ import config from '~/app.config'
 
 const openFile = useOpenFile()
 const api: Ref<API> = useState('api')
-const queue: Ref<string[]> = useState('queue', () => [] as string[])
 const presetGraphs = usePresetGraphs()
 
 /**
@@ -59,6 +58,7 @@ const presetGraphs = usePresetGraphs()
  */
 
 async function addPresetGraph(index: number) {
+  const queue: Ref<string[]> = useState('queue', () => [] as string[])
   const url = presetGraphs[index].url()
   await api.value.queueAddURL(url.toString(), presetGraphs[index].name)
   queue.value.push(presetGraphs[index].name)

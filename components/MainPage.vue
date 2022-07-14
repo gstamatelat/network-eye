@@ -41,7 +41,6 @@ import API from '~/api/API'
 const api: Ref<API> = useState('api')
 const graphs: Ref<ClientGraph[]> = useState('graphs', () => [] as ClientGraph[])
 const openFile = useOpenFile()
-const queue: Ref<string[]> = useState('queue', () => [] as string[])
 const presetGraphs = usePresetGraphs()
 
 /**
@@ -49,6 +48,7 @@ const presetGraphs = usePresetGraphs()
  */
 
 async function addPresetGraph(index: number) {
+  const queue: Ref<string[]> = useState('queue', () => [] as string[])
   const url = presetGraphs[index].url()
   await api.value.queueAddURL(url.toString(), presetGraphs[index].name)
   queue.value.push(presetGraphs[index].name)
