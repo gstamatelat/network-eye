@@ -8,7 +8,7 @@
     "generate": "nuxi generate"
   },
   "devDependencies": {
-    "nuxt": "3.10.x",
+    "nuxt": "3.11.x",
     "@nuxtjs/tailwindcss": "6.8.x",
     "@tailwindcss/typography": "0.5.x",
     "vue-chartjs": "4.1.x",
