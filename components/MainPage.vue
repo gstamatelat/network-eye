@@ -30,9 +30,9 @@
 </template>
 
 <script lang="ts" setup>
-import { Ref } from 'vue'
-import ClientGraph from '~/custom/ClientGraph'
-import API from '~/api/API'
+import { type Ref } from 'vue'
+import type ClientGraph from '~/custom/ClientGraph'
+import type API from '~/api/API'
 
 /**
  * API, state and composables.

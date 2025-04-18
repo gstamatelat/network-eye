@@ -1,4 +1,4 @@
-import ClientGraph from "~/custom/ClientGraph"
+import type ClientGraph from "~/custom/ClientGraph"
 
 /**
  * The web worker API interface.

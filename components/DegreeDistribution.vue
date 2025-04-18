@@ -14,11 +14,11 @@
 </template>
 
 <script lang="ts" setup>
-import { Ref, ComputedRef } from 'vue'
+import { type Ref, type ComputedRef } from 'vue'
 import { Scatter } from 'vue-chartjs'
 import { Chart, registerables } from 'chart.js'
-import API from '~/api/API'
-import ClientGraph from '~/custom/ClientGraph'
+import type API from '~/api/API'
+import type ClientGraph from '~/custom/ClientGraph'
 
 Chart.register(...registerables)
 

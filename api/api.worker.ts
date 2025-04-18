@@ -1,8 +1,8 @@
 import * as Comlink from 'comlink'
 import Graph from 'graphology'
-import ClientGraph from '~/custom/ClientGraph'
+import type ClientGraph from '~/custom/ClientGraph'
 import CsvImporter from './CsvImporter'
-import API from './API'
+import type API from './API'
 
 export default interface GraphSource {
   readonly name: string

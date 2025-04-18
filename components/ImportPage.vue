@@ -60,9 +60,9 @@
 </template>
 
 <script lang="ts" setup>
-import { Ref } from 'vue'
+import { type Ref } from 'vue'
 import { bytesToHumanReadable } from '~/custom/bytesToHumanReadable'
-import API from '~/api/API'
+import type API from '~/api/API'
 
 /**
  * The API and state.

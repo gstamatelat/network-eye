@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Ref } from 'vue'
-import { createPopper, Instance } from '@popperjs/core'
+import { type Ref } from 'vue'
+import { createPopper, type Instance } from '@popperjs/core'
 
 /**
  * The element to attach the tooltip to.

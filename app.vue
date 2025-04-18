@@ -32,12 +32,12 @@
 </template>
 
 <script lang="ts" setup>
-import { Ref } from 'vue'
+import { type Ref } from 'vue'
 import * as Comlink from 'comlink'
 import config from '~/app.config'
 import APIWorker from '~/api/api.worker?worker'
-import API from '~/api/API'
-import ClientGraph from '~/custom/ClientGraph'
+import type API from '~/api/API'
+import type ClientGraph from '~/custom/ClientGraph'
 
 /**
  * State and composables.

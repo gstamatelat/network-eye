@@ -92,10 +92,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ComputedRef, Ref } from 'vue'
+import { type ComputedRef, type Ref } from 'vue'
 import config from '~/app.config'
-import API from '~/api/API'
-import ClientGraph from '~/custom/ClientGraph'
+import type API from '~/api/API'
+import type ClientGraph from '~/custom/ClientGraph'
 
 /**
  * The input property and import emit.

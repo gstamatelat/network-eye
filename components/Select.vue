@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Ref, ComputedRef } from 'vue'
+import type { Ref, ComputedRef } from 'vue'
 
 /**
  * Definition of the items prop and index model.
